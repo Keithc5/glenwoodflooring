@@ -1,0 +1,41 @@
+
+<body style="background-image:url(image/patterns.png)">
+    <div class="wrapper">
+        <!-- Header -->
+        <?php include 'header.php'; ?>
+
+        <div class="content">
+            <div class="content-bot">
+                <div class="about-us">
+                	<!-- start page content -->
+                
+                <h3>Sanding</h3>
+                    <div class="maincontent">
+                        <p class="p1">Glenwood specialises in floor sanding and finishing. 
+                            We have completed work and restored wooden floors throughout the country. 
+                            These floors are fully restored to their original beauty. Floor sanding and 
+                            finishing means you can have a floor that looks like new without the trouble of having to completly replace it.&nbsp;</p>
+                        <p class="p2">&nbsp;</p>
+                        <p class="p1">While sanding floors we use the latest technology. 
+                            We use dust free sanding machinery that ensures dusting is completed 98% dust free. 
+                            This will ensure that your floors will be restored in a clean environment leaving your floor restored with no mess.&nbsp;</p>
+                        <p class="p2">&nbsp;</p>
+                        <p class="p1">To sand and finish your floor, the floors are firslty sanded down to bare wood, 
+                            removing all stains, scuffs and scratches. Your floor is then treated and finished to an 
+                            extremely high quality standard which leaves you with a floor that 
+                            looks as good as new.&nbsp;</p>
+
+                        <p class="p2">&nbsp;</p>
+                        <p class="p1">&nbsp;</p>
+                    </div>
+                </div>          
+        </div>
+
+        <div class="clear"></div>
+
+        <!-- Footer -->
+        <?php include 'footer.php'; ?>
+        
+    </div>
+</body>
+</html>

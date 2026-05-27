@@ -1,0 +1,46 @@
+
+<body style="background-image:url(image/patterns.png)">
+    <div class="wrapper">
+        <!-- Header -->
+        <?php 
+        $page = 'about';
+        include 'header.php'; 
+        ?>
+
+        <div class="content">
+            <div class="content-bot">
+                <div class="about-us">
+                	<!-- start page content -->
+                
+                <h3>About</h3>
+                    <div class="maincontent">
+                        <p class="p1">Welcome to Glenwood Flooring, the professional and reliable top quality floor sales and sanding service for all types of Wooden Floors, 
+                            including Hardwood, Softwood and Parquet. 
+                            Glenwood is a family-run company based in Glenamaddy, County Galway.&nbsp;</p>
+                        <p class="p2">Glenwood Flooring has over 15 Years Experience in wooden floor sales and restoration. We offer a professional wood flooring renovation and restoration service 
+                            to all homes and businesses throughout Ireland. We also specialize in the sales and installation of brand-new floors. We can repair, sand, stain or varnish any size wood floor. 
+                            No job is too big or too small.</p>
+                        <p class="p2">Glenwood Flooring has experience in restoring all types of floors. These include private homes, business such as bars, restaurants, gyms and hotels. 
+                            Our work can also be completed at times when it suits you and your business. Our work can be done during bank holidays so that your business is not affected. <br />
+                            <br />
+                        We have restored floors in various churches and houses of worship which vary greatly in size. Our work has also seen us restore large factory floors. 
+                        Glenwood flooring has also great experience in working with specialised sports floors which requires special treatment to ensure they remain in 
+                        excellent condition for longer periods as they are subject to extremes of wear and tear.<br />
+                        <br />
+                        For any enquiries about your floor, please contact us today. We would be delighted to hear from you and hope we can help you to 
+                        <em>bring up your old floor like new</em>.</p>
+                        <p class="p2">&nbsp;</p>
+                        <p class="p1">&nbsp;</p>
+
+                    </div>
+                </div>          
+        </div>
+
+        <div class="clear"></div>
+
+        <!-- Footer -->
+        <?php include 'footer.php'; ?>
+        
+    </div>
+</body>
+</html>

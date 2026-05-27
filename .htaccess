@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# Redirect legacy PHP URLs to static HTML pages.
+RewriteCond %{THE_REQUEST} \s/([^.]+)\.php[\s?] [NC]
+RewriteRule ^(.+)\.php$ /$1.html [R=301,L]
+
+# Keep extensionless URLs working on static hosting that supports Apache rewrites.
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^([a-zA-Z0-9_-]+)$ $1.html [L]

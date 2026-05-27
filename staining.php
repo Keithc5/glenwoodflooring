@@ -1,0 +1,40 @@
+
+<body style="background-image:url(image/patterns.png)">
+    <div class="wrapper">
+        <!-- Header -->
+        <?php include 'header.php'; ?>
+
+        <div class="content">
+            <div class="content-bot">
+                <div class="about-us">
+                	<!-- start page content -->
+                
+                <h3>Staining</h3>
+                    <div class="maincontent">
+                        <p class="p1">Floor Staining allows you to change the colour of your floor. 
+                            You can choose from many different stains such as Walnut or Dark oak. A stain can also be mixed. 
+                            This can give you the correct choice of tone for your floor.</p>
+                        <p class="p2">&nbsp;</p>
+                        <p class="p1">Staining of the floor has a huge impact on the look of a room. 
+                            Too dark of a stain may give you a look of a smaller room. If you are unsure about what might 
+                            suit your floor and room, we would be delighted to assist you when making this choice and advise you what will look best.</p>
+                        <p class="p2">&nbsp;</p>
+                        <p class="p1">The floor staining process is done after sanding is completed. 
+                            Stain is applied by hand and allowed to dry for 12 hours. The process is completed by adding a 
+                            final 3 coats of varnish to leave your floor looking immaculate.&nbsp;</p>
+
+                        <p class="p2">&nbsp;</p>
+                        <p class="p1">&nbsp;</p>
+
+                    </div>
+                </div>          
+        </div>
+
+        <div class="clear"></div>
+
+        <!-- Footer -->
+        <?php include 'footer.php'; ?>
+        
+    </div>
+</body>
+</html>
