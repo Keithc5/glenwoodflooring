@@ -76,12 +76,26 @@
 	cursor:pointer;
 	font-size:0px;
 }
-.nivo-prevNav {
+/* .nivo-prevNav {
 	left:-30px; background:url(../image/arrows.png) no-repeat 0 0;
 }
 .nivo-nextNav {
 	left:-30px; margin-top:31px; background:url(../image/arrows.png) no-repeat -31px 0;
+} */
+
+.nivo-prevNav {
+    left:10px;
+    background:url(../image/arrows.png) no-repeat 0 0;
 }
+
+.nivo-nextNav {
+    left:10px;
+    margin-top:31px;
+    background:url(../image/arrows.png) no-repeat -31px 0;
+}
+
+
+
 /* Control nav styles (e.g. 1,2,3...) */
 .nivo-controlNav a {
 	position:relative;
