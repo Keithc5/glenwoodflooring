@@ -38,6 +38,7 @@
 	position:absolute;
 	z-index:5;
 	height:100%;
+	background-size:100% 100% !important;
 }
 .nivo-box {
 	display:block;
@@ -69,7 +70,8 @@
 .nivo-directionNav{ display:block;}
 .nivo-directionNav a {
 	position:absolute;
-	top:165px;
+	top:50%;
+	margin-top:-15px;
 	z-index:9;
 	width:30px;
 	height:30px;
@@ -90,7 +92,7 @@
 
 .nivo-nextNav {
     left:10px;
-    margin-top:31px;
+    margin-top:16px;
     background:url(../image/arrows.png) no-repeat -31px 0;
 }
 

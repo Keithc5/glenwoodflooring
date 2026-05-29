@@ -79,7 +79,7 @@ img{ border:none; }
 }
 .slider-wrapper{
     width:100%;
-    max-width:1400px;
+    max-width:970px;
     margin:0 auto;
     overflow:hidden;
     padding-bottom:25px;
@@ -87,9 +87,26 @@ img{ border:none; }
 .slider-holder{
     border:4px solid #533c31;
     width:100%;
-    max-width:1400px;
+    max-width:970px;
     height:auto;
     float:none;
+    overflow:hidden;
+    box-sizing:border-box;
+}
+
+#slider{
+    width:100% !important;
+    max-width:962px;
+    aspect-ratio:962 / 382;
+    height:auto !important;
+    overflow:hidden;
+    background-size:100% 100% !important;
+}
+
+#slider img{
+    width:100% !important;
+    height:100% !important;
+    object-fit:cover;
 }
 
 .welcome-text{ text-align:center; padding-bottom:35px;}
