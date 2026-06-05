@@ -1,0 +1,38 @@
+        <div class="header_wrapper">
+            <div class="top_header">
+                <div class="logo">
+                    <a href="index.html"><img src="image/logo.png" width="262" height="76" alt="Glenwood Logo" /></a>
+                </div>
+                <div class="header_info">
+                    {% if page.show_quote != false %}
+                    <div class="quote">We bring up your old floors like new</div>
+                    {% endif %}
+                    <div class="mobile">086 0683004</div>
+                    <div class="email">info@glenwoodflooring.ie</div>
+                </div>
+                <br clear="all" />
+            </div>
+            <div class="main_nav">
+                <div class="nav-holder">
+                    <ul>
+                    <li><a href="index.html"{% if page.active == "home" %} class="active"{% endif %} title="Home">Home</a></li>
+                    <li><a href="about.html"{% if page.active == "about" %} class="active"{% endif %} title="About">About</a></li>
+                    {% if page.short_nav %}
+                    <li><a href="pricing.html"{% if page.active == "pricing" %} class="active"{% endif %} title="Services">Our Services</a></li>
+                    <li><a href="gallery.html"{% if page.active == "gallery" %} class="active"{% endif %} title="Gallery">Gallery</a></li>
+                    <li><a href="contact_us.html"{% if page.active == "contact" %} class="active"{% endif %} title="Contact Us">Contact Us</a></li>
+                    {% else %}
+                    <li><a href="our_work.html"{% if page.active == "our_work" %} class="active"{% endif %} title="Our Work">Our Work</a></li>
+                    <li><a href="sanding.html"{% if page.active == "sanding" %} class="active"{% endif %} title="Sanding">Sanding</a></li>
+                    <li><a href="staining.html"{% if page.active == "staining" %} class="active"{% endif %} title="Staining">Staining</a></li>
+                    <li><a href="floor-finishing.html"{% if page.active == "floor-finishing" %} class="active"{% endif %} title="Finishing">Finishing</a></li>
+                    <li><a href="specialised-flooring.html"{% if page.active == "specialised-flooring" %} class="active"{% endif %} title="Specialised">Specialised</a></li>
+                    <li><a href="gallery.html"{% if page.active == "gallery" %} class="active"{% endif %} title="Gallery">Gallery</a></li>
+                    <li><a href="pricing.html"{% if page.active == "pricing" %} class="active"{% endif %} title="Pricing">Pricing</a></li>
+                    <li><a href="contact_us.html"{% if page.active == "contact" %} class="active"{% endif %} title="Contact Us">Contact Us</a></li>
+                    {% endif %}
+                    </ul>
+                </div>
+            </div>
+            <div class="menu_shadow"></div>
+        </div>
