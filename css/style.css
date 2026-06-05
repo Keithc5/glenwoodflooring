@@ -66,6 +66,68 @@ margin:0 auto;; margin:0 auto;}
 
 .main_nav ul li a.active{background:#ba7e3b; color:#fff;}
 
+.main_nav ul li.has-dropdown{
+    position:relative;
+}
+
+.main_nav ul li.has-dropdown > a::after{
+    content:'';
+    display:inline-block;
+    margin-left:7px;
+    border-left:4px solid transparent;
+    border-right:4px solid transparent;
+    border-top:5px solid #818180;
+    vertical-align:middle;
+}
+
+.main_nav ul li.has-dropdown > a:hover::after{
+    border-top-color:#fff;
+}
+
+.main_nav ul li .dropdown-menu{
+    display:none;
+    position:absolute;
+    top:44px;
+    left:0;
+    z-index:1000;
+    float:none;
+    width:190px;
+    background:#fff;
+    border:1px solid #d8d8d8;
+    border-top:none;
+    box-shadow:0 3px 8px rgba(0,0,0,0.12);
+}
+
+.main_nav ul li:hover .dropdown-menu{
+    display:block;
+}
+
+.main_nav ul li .dropdown-menu li{
+    float:none;
+    display:block;
+    width:100%;
+}
+
+.main_nav ul li .dropdown-menu li a{
+    display:block;
+    height:auto;
+    line-height:20px;
+    padding:11px 16px;
+    border-left:none;
+    border-top:1px solid #ececec;
+    background:#fff;
+    color:#818180;
+}
+
+.main_nav ul li .dropdown-menu li:first-child a{
+    border-top:none;
+}
+
+.main_nav ul li .dropdown-menu li a:hover{
+    background:#ba7e3b;
+    color:#fff;
+}
+
 .search{ float:right; width:192px;}
 .search .search-input{ border:none; border-left:1px solid #d8d8d8; line-height:20px; height:44px; float:left; outline:none; background:none; font-size:14px; color:#a8a8a8; text-transform:uppercase; font-family: 'source_sans_prolight';  padding-left:5px; width:155px;}
 .search-btn{ background:url(../image/search-btn.png) no-repeat 0 0; width:31px; height:44px; float:left; border:none; font-size:0px; cursor:pointer;}
@@ -200,6 +262,49 @@ margin-bottom:20px;}
 .maincontent a:hover{ color:#ba7e3b;}
 .maincontent p {
     padding-bottom: 18px;
+}
+
+.why-list{
+    margin:14px 0 0;
+    padding:0;
+    list-style:none;
+}
+
+.why-list li{
+    position:relative;
+    padding-left:30px;
+    margin-bottom:12px;
+    color:#666;
+    line-height:1.6;
+}
+
+.why-list li::before{
+    content:'\2713';
+    position:absolute;
+    left:0;
+    top:1px;
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    background:#9b6832;
+    color:#fff;
+    font-size:13px;
+    line-height:20px;
+    text-align:center;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight:bold;
+}
+
+.process-list{
+    margin:10px 0 18px 22px;
+    padding:0;
+    list-style:disc;
+}
+
+.process-list li{
+    margin-bottom:8px;
+    color:#666;
+    line-height:1.6;
 }
 
 .slider-wrapper{

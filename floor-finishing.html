@@ -53,36 +53,7 @@
 </head>
 <body style="background-image:url(image/patterns.png)">
     <div class="wrapper">
-        <div class="header_wrapper">
-            <div class="top_header">
-                <div class="logo">
-                    <a href="index.html"><img src="image/logo.png" width="262" height="76" alt="Glenwood Logo" /></a>
-                </div>
-                <div class="header_info">
-                    <div class="quote">We bring up your old floors like new</div>
-                    <div class="mobile">086 0683004</div>
-                    <div class="email">info@glenwoodflooring.ie</div>
-                </div>
-                <br clear="all" />
-            </div>
-            <div class="main_nav">
-                <div class="nav-holder">
-                    <ul>
-                    <li><a href="index.html" title="Home">Home</a></li>
-                    <li><a href="about.html" title="About">About</a></li>
-                    <li><a href="our_work.html" title="Our Work">Our Work</a></li>
-                    <li><a href="sanding.html" title="Sanding">Sanding</a></li>
-                    <li><a href="staining.html" title="Staining">Staining</a></li>
-                    <li><a href="floor-finishing.html" class="active" title="Finishing">Finishing</a></li>
-                    <li><a href="specialised-flooring.html" title="Specialised">Specialised</a></li>
-                    <li><a href="gallery.html" title="Gallery">Gallery</a></li>
-                    <li><a href="pricing.html" title="Pricing">Pricing</a></li>
-                    <li><a href="contact_us.html" title="Contact Us">Contact Us</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="menu_shadow"></div>
-        </div>
+        <div id="header-placeholder"></div>
 <div class="content">
             <div class="content-bot">
                 <div class="about-us">
@@ -90,6 +61,8 @@
                 
                 <h3>Floor Finishing</h3>
                     <div class="maincontent">
+                        <p class="p1">Glenwood can finish your floor to protect it from every day wear and dirt so that it remains looking like new</p>
+                        <p class="p2">&nbsp;</p>
                         <p class="p1">We finish our floors using only the best finish. This means that your floor will be fully protected from dirt and moisture. 
                             The floor finish also gives your floor the final look that keeps it looking sleek and shiny and natural. </p>
                         <p class="p2">Glenwood finish floors using a variety of different products, chosen specifically to suit your floor. 
@@ -104,40 +77,14 @@
         </div>
         </div>
         <div class="clear"></div>
-        <div class="footer">
-            <div class="footer-social">
-                <div class="footer-social-wrapper">
-                    <ul>
-                        <li class="facebook"><a href="https://www.facebook.com/glenwoodtimberfloorrestoration/" target="_blank"><img src="image/facebook.png" alt="Facebook" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;" />Facebook</a></li>
-                        <li class="instagram"><a href="https://www.instagram.com/Glenwoodfloors/" target="_blank"><img src="image/instagram.png" alt="Instagram" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;" />Instagram</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-mid">
-                <div class="footer-mid-wrapper">
-                    <div class="contact-info">
-                        <h2>Contact info</h2>
-                        Phone: 086 068 3004<br /> Email: info@glenwoodflooring.ie
-                    </div>
-                    <div class="footer_menu">
-                        <ul>
-                    <li><a href="index.html" title="Home">Home</a></li>
-                    <li><a href="about.html" title="About">About</a></li>
-                    <li><a href="our_work.html" title="Our Work">Our Work</a></li>
-                    <li><a href="sanding.html" title="Sanding">Sanding</a></li>
-                    <li><a href="staining.html" title="Staining">Staining</a></li>
-                    <li><a href="floor-finishing.html" title="Finishing">Finishing</a></li>
-                    <li><a href="specialised-flooring.html" title="Specialised">Specialised</a></li>
-                    <li><a href="gallery.html" title="Gallery">Gallery</a></li>
-                    <li><a href="pricing.html" title="Pricing">Pricing</a></li>
-                    <li><a href="contact_us.html" title="Contact Us">Contact Us</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="copy">&copy; 2026 glenwoodflooring.ie All rights reserved</div>
-        </div>
+        <div id="footer-placeholder"></div>
     </div>
+    <script type="text/javascript">
+        jQuery(function($) {
+            $('#header-placeholder').load('header.html');
+            $('#footer-placeholder').load('footer.html');
+        });
+    </script>
 </body>
 </html>
 
