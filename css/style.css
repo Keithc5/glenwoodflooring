@@ -43,11 +43,11 @@ width:95%;
 margin:0 auto;; }
 .logo{float:left; padding-top:9px; outline:none;}
 
-.header_info{width:410px; margin:20px 0 0 106px; float:left;}
+.header_info{width:230px; margin:18px 0 0 0; float:right;}
 .header_info .quote{ text-align:center; color:#533c31; font:italic 18px/24px 'source_sans_proregular'; margin-bottom:10px; text-transform:uppercase;}
 .header_info .phone{float:left; color:#727272; font:normal 16px 'source_sans_proregular'; background:url(../image/phone.png) no-repeat 0 0; padding-left:16px;}
-.header_info .mobile{float:left; margin-left:10px; color:#727272; font:normal 16px 'source_sans_proregular'; background:url(../image/mobile.png) no-repeat 0 0; padding-left:16px;}
-.header_info .email{float:right; color:#727272; font:normal 16px 'source_sans_proregular'; background:url(../image/email.png) no-repeat 0; padding-left:22px;}
+.header_info .mobile{display:block; float:none; margin:0 0 6px 0; color:#727272; font:normal 16px 'source_sans_proregular'; background:url(../image/mobile.png) no-repeat 0 0; padding-left:16px;}
+.header_info .email{display:block; float:none; color:#727272; font:normal 16px 'source_sans_proregular'; background:url(../image/email.png) no-repeat 0; padding-left:22px;}
 
 
 .quote_btn{ float:right; margin-top:29px;}
