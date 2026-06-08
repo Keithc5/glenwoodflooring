@@ -237,6 +237,7 @@ margin-bottom:20px;}
     float:none;
 }
 .content-bot .testimonial{ width:235px; float:right; }
+.content-bot .about-us h1,
 .content-bot .about-us h3, .content-bot .testimonial h3 { 
     background:#9b6832; 
     color:#ffffff;  
