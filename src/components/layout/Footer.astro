@@ -1,0 +1,61 @@
+---
+import { business } from '@config/activeSite';
+import { navigation } from '@config/navigation';
+import { withBasePath } from '@utils/site-url';
+
+const year = new Date().getFullYear();
+
+const quickLinks = navigation;
+---
+
+<footer class="site-footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <h2 class="footer__name">{business.name}</h2>
+      <p class="footer__tagline">{business.tagline}</p>
+    </div>
+
+    <nav class="footer__section" aria-label="Footer navigation">
+      <h3 class="footer__heading">Quick links</h3>
+      <ul class="footer__list">
+        {quickLinks.map((link) => (
+          <li><a href={withBasePath(link.href)}>{link.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+
+    <section class="footer__section" aria-labelledby="footer-contact-heading">
+      <h3 class="footer__heading" id="footer-contact-heading">Contact</h3>
+      <address class="footer__address">
+        {business.contact.email && (
+          <a href={`mailto:${business.contact.email}`}>{business.contact.email}</a>
+        )}
+        {business.contact.phone && (
+          <a href={`tel:${business.contact.phone.replaceAll(' ', '')}`}>{business.contact.phone}</a>
+        )}
+        {business.contact.address && (
+          <span>{business.contact.address}</span>
+        )}
+      </address>
+    </section>
+
+    {business.openingHours.length > 0 && <section class="footer__section" aria-labelledby="footer-hours-heading">
+      <h3 class="footer__heading" id="footer-hours-heading">Opening hours</h3>
+      <dl class="footer__hours">
+        {business.openingHours.map((item) => (
+          <div class="footer__hours-row">
+            <dt>{item.label}</dt>
+            <dd>{item.value}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>}
+  </div>
+
+  <div class="container footer__bottom">
+    <p>
+      &copy; {year} {business.name}. All rights reserved.
+    </p>
+    <p><a href={withBasePath('/privacy')}>Privacy</a></p>
+  </div>
+</footer>

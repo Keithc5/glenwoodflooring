@@ -1,0 +1,24 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { business } from "@config/activeSite";
+import Hero from "@components/sections/Hero.astro";
+import Services from "@components/sections/Services.astro";
+import Gallery from "@components/sections/Gallery.astro";
+import ContactCTA from "@components/sections/ContactCTA.astro";
+import Section from "@components/ui/Section.astro";
+import SectionHeading from "@components/ui/SectionHeading.astro";
+import Grid from "@components/ui/Grid.astro";
+import Card from "@components/ui/Card.astro";
+import { withBasePath } from "@utils/site-url";
+---
+<BaseLayout title={business.seo.title} description={business.seo.description}>
+  <Hero eyebrow="Timber flooring services" title="Restore the natural character of your timber floor" description={business.seo.description} primaryCtaLabel="Discuss your floor" primaryCtaHref="/contact" secondaryCtaLabel="Explore our work" secondaryCtaHref="/our-work">
+    <img slot="image" src={withBasePath('/images/glenwood/slider-1.jpg')} alt="Restored timber floor in an interior" width="800" height="600" />
+  </Hero>
+  <Section><SectionHeading eyebrow="Glenwood Flooring" title="Professional timber floor care" description="Based in Glenamaddy, County Galway, Glenwood Flooring provides renovation and restoration services for timber floors in homes and businesses throughout Ireland." align="center" /></Section>
+  <Services eyebrow="Services" title="Timber flooring services" description="Practical services for restoring, changing and protecting timber floors." services={business.services} />
+  <Section><SectionHeading eyebrow="Why choose Glenwood" title="Flooring work planned around the floor" description="From initial assessment through sanding and finishing, the work is shaped around the timber, its condition and how the space is used." align="center" /><Grid columns={3} gap="md"><Card title="Restoration focused" description="Repairs and preparation address worn or damaged areas before finishing." /><Card title="Domestic and commercial" description="Services are available for homes, businesses and large community spaces." /><Card title="Specialist capability" description="Sports, gym and dance floors can receive the treatment their scale and use require." /></Grid></Section>
+  <Gallery eyebrow="Selected work" title="Flooring project preview" description="A first selection of imagery from Glenwood's existing website." items={business.gallery} />
+  <ContactCTA {...business.contactCta} />
+</BaseLayout>
+<style>:global(.hero__image img){width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--radius-lg)}</style>

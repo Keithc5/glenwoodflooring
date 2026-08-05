@@ -1,0 +1,68 @@
+---
+import Section from '@components/ui/Section.astro';
+import SectionHeading from '@components/ui/SectionHeading.astro';
+import Grid from '@components/ui/Grid.astro';
+import { withBasePath } from '@utils/site-url';
+
+interface GalleryItem {
+  title: string;
+  image: string;
+  alt: string;
+  href?: string;
+}
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  description?: string;
+  items: GalleryItem[];
+}
+
+const {
+  eyebrow,
+  title,
+  description,
+  items,
+} = Astro.props;
+---
+
+<Section>
+  <div class="gallery">
+    <SectionHeading
+      eyebrow={eyebrow}
+      title={title}
+      description={description}
+      align="center"
+    />
+
+    <Grid columns={3} gap="md">
+      {items.map((item) => (
+        item.href ? (
+          <a href={withBasePath(item.href)} class="gallery-item">
+            <img
+              class="gallery-item__image"
+              src={withBasePath(item.image)}
+              alt={item.alt}
+              width="800"
+              height="600"
+              loading="lazy"
+            />
+            <span class="gallery-item__title">{item.title}</span>
+          </a>
+        ) : (
+          <figure class="gallery-item">
+            <img
+              class="gallery-item__image"
+              src={withBasePath(item.image)}
+              alt={item.alt}
+              width="800"
+              height="600"
+              loading="lazy"
+            />
+            <figcaption class="gallery-item__title">{item.title}</figcaption>
+          </figure>
+        )
+      ))}
+    </Grid>
+  </div>
+</Section>

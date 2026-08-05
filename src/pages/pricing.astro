@@ -1,0 +1,11 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { business } from "@config/activeSite";
+import Section from "@components/ui/Section.astro";
+import SectionHeading from "@components/ui/SectionHeading.astro";
+import ContactCTA from "@components/sections/ContactCTA.astro";
+---
+<BaseLayout title={`Pricing | ${business.name}`} description="Contact Glenwood Flooring for pricing based on your floor, its condition and the work required.">
+  <Section><SectionHeading eyebrow="Pricing" title="Pricing for your flooring project" description="No confirmed price list was available in the existing Glenwood website. Pricing depends on the floor, its condition, the service required and the project scope. Contact Glenwood for an assessment and quote." align="center" headingLevel="h1" /></Section>
+  <ContactCTA {...business.contactCta} />
+</BaseLayout>

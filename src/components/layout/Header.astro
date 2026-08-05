@@ -1,0 +1,55 @@
+---
+import { business } from '@config/activeSite';
+import { navigation } from '@config/navigation';
+import { stripBasePath, withBasePath } from '@utils/site-url';
+
+const navItems = navigation;
+
+const currentPath = stripBasePath(Astro.url.pathname);
+const normalisePath = (path: string) =>
+  path !== "/" ? path.replace(/\/$/, "") : path;
+
+const currentPathname = normalisePath(currentPath);
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href={withBasePath("/")} class="logo" aria-label={`${business.name} home`}>
+      <img src={withBasePath("/images/glenwood/logo.png")} alt={business.name} width="291" height="99" />
+    </a>
+
+    <nav class="nav nav--desktop" aria-label="Main navigation">
+      {navItems.map((item) => (
+        <a
+          href={withBasePath(item.href)}
+          aria-current={currentPathname === item.href ? "page" : undefined}
+          class:list={[
+            'nav-link',
+            currentPathname === item.href && 'active',
+          ]}
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <details class="mobile-nav">
+      <summary class="mobile-nav__summary">Menu</summary>
+      <nav class="mobile-nav__panel" aria-label="Mobile navigation">
+        {navItems.map((item) => (
+          <a
+            href={withBasePath(item.href)}
+            aria-current={currentPathname === item.href ? "page" : undefined}
+            class:list={[
+              'nav-link',
+              'mobile-nav__link',
+              currentPathname === item.href && 'active',
+            ]}
+          >
+            {item.label}
+          </a>
+        ))}
+      </nav>
+    </details>
+  </div>
+</header>

@@ -1,0 +1,44 @@
+---
+import { withBasePath } from '@utils/site-url';
+
+type Variant = "primary" | "secondary" | "outline" | "ghost";
+type Size = "sm" | "md" | "lg";
+
+interface Props {
+  href?: string;
+  type?: "button" | "submit" | "reset";
+  variant?: Variant;
+  size?: Size;
+  fullWidth?: boolean;
+  disabled?: boolean;
+  class?: string;
+}
+
+const {
+  href,
+  type = "button",
+  variant = "primary",
+  size = "md",
+  fullWidth = false,
+  disabled = false,
+  class: className = "",
+} = Astro.props;
+
+const classes = [
+  "btn",
+  `btn--${variant}`,
+  `btn--${size}`,
+  fullWidth ? "btn--full" : "",
+  className,
+].filter(Boolean).join(" ");
+---
+
+{href ? (
+  <a href={withBasePath(href)} class={classes}>
+    <slot />
+  </a>
+) : (
+  <button type={type} class={classes} disabled={disabled}>
+    <slot />
+  </button>
+)}

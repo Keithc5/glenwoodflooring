@@ -1,0 +1,28 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Hero from "@components/sections/Hero.astro";
+import Section from "@components/ui/Section.astro";
+import ContactCTA from "@components/sections/ContactCTA.astro";
+import { business } from "@config/activeSite";
+import { withBasePath } from "@utils/site-url";
+
+interface Props { title: string; description: string; image: string; imageAlt: string; paragraphs: string[]; }
+const { title, description, image, imageAlt, paragraphs } = Astro.props;
+---
+<BaseLayout title={`${title} | ${business.name}`} description={description}>
+  <Hero eyebrow="Glenwood Flooring" title={title} description={description}>
+    <img slot="image" src={withBasePath(image)} alt={imageAlt} width="800" height="600" />
+  </Hero>
+  <Section>
+    <article class="service-content">
+      {paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+    </article>
+  </Section>
+  <ContactCTA {...business.contactCta} />
+</BaseLayout>
+
+<style>
+  .service-content { max-width: 48rem; margin-inline: auto; font-size: 1.125rem; }
+  .service-content p + p { margin-top: 1rem; }
+  :global(.hero__image img) { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius-lg); }
+</style>

@@ -1,0 +1,80 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { business } from '@config/activeSite';
+import Section from '@components/ui/Section.astro';
+import SectionHeading from '@components/ui/SectionHeading.astro';
+import Grid from '@components/ui/Grid.astro';
+import Card from '@components/ui/Card.astro';
+import ContactCTA from '@components/sections/ContactCTA.astro';
+import { withBasePath } from '@utils/site-url';
+
+const featuredItem = business.gallery[0];
+---
+
+<BaseLayout
+  title={`Gallery | ${business.name}`}
+  description={business.galleryPage.description}
+>
+    <Section>
+      <div class="gallery-page__intro">
+        <SectionHeading
+          eyebrow={business.galleryPage.eyebrow}
+          title={business.galleryPage.title}
+          description={business.galleryPage.description}
+          align="center"
+          headingLevel="h1"
+        />
+      </div>
+    </Section>
+
+    <Section background="muted">
+      <div class="gallery-page__grid">
+        <Grid columns={3} gap="md">
+          {business.gallery.map((item) => (
+            <figure class="gallery-item">
+              <img
+                class="gallery-item__image"
+                src={withBasePath(item.image)}
+                alt={item.alt}
+                width="800"
+                height="600"
+                loading="lazy"
+              />
+              <figcaption class="gallery-item__title">{item.title}</figcaption>
+            </figure>
+          ))}
+        </Grid>
+      </div>
+    </Section>
+
+    <Section>
+      <div class="gallery-page__featured">
+        <SectionHeading
+          eyebrow="Featured"
+          title={business.galleryPage.featuredTitle}
+          description={business.galleryPage.featuredDescription}
+        />
+
+        <Card title={featuredItem.title} description={featuredItem.alt}>
+          <img
+            slot="image"
+            src={withBasePath(featuredItem.image)}
+            alt={featuredItem.alt}
+            width="800"
+            height="600"
+            loading="lazy"
+          />
+        </Card>
+      </div>
+    </Section>
+
+    <ContactCTA
+      eyebrow={business.contactCta.eyebrow}
+      title={business.contactCta.title}
+      description={business.contactCta.description}
+      primaryCtaLabel={business.contactCta.primaryCtaLabel}
+      primaryCtaHref={business.contactCta.primaryCtaHref}
+      secondaryCtaLabel={business.contactCta.secondaryCtaLabel}
+      secondaryCtaHref={business.contactCta.secondaryCtaHref}
+    />
+</BaseLayout>
