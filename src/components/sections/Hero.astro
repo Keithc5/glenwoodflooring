@@ -3,6 +3,7 @@ import Button from '@components/ui/Button.astro';
 import Container from '@components/ui/Container.astro';
 
 interface Props {
+  variant?: "default" | "immersive";
   eyebrow?: string;
   title: string;
   description?: string;
@@ -13,6 +14,7 @@ interface Props {
 }
 
 const {
+  variant = "default",
   eyebrow,
   title,
   description,
@@ -30,6 +32,7 @@ const hasImage = Astro.slots.has("image");
 <section class:list={[
   "hero",
   hasImage && "hero--with-image",
+  `hero--${variant}`,
 ]}>
   <Container>
     <div class="hero__inner">

@@ -1,6 +1,7 @@
+import type { ImageMetadata } from "astro";
+
 export interface ContactDetails {
   phone: string;
-  email: string;
   address: string;
 }
 
@@ -20,6 +21,8 @@ export interface ServiceItem {
   title: string;
   description: string;
   href: string;
+  image?: ImageMetadata;
+  imageAlt?: string;
 }
 
 export interface GalleryItem {
@@ -48,12 +51,6 @@ export interface ContactCtaConfig {
   primaryCtaHref: string;
   secondaryCtaLabel: string;
   secondaryCtaHref: string;
-}
-
-export interface ContactFormConfig {
-  eyebrow: string;
-  title: string;
-  description: string;
 }
 
 export interface AboutPageValue {
@@ -98,8 +95,6 @@ export interface ContactPageConfig {
   description: string;
   detailsTitle: string;
   detailsDescription: string;
-  hoursTitle: string;
-  hoursDescription: string;
 }
 
 export interface ThemeConfig {
@@ -129,7 +124,6 @@ export interface BusinessConfig {
   testimonials: TestimonialItem[];
   faqs: FaqItem[];
   contactCta: ContactCtaConfig;
-  contactForm: ContactFormConfig;
   aboutPage: AboutPageConfig;
   servicesPage: ServicesPageConfig;
   galleryPage: GalleryPageConfig;

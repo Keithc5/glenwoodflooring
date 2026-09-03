@@ -35,13 +35,17 @@ const structuredData = {
   "@type": "ProfessionalService",
   name: business.name,
   url: siteUrl,
-  description: business.seo.description,
-  ...(business.contact.email && { email: business.contact.email }),
+  description,
+  logo: resolveUrl("/images/glenwood/logo-transparent.png"),
   ...(business.contact.phone && { telephone: business.contact.phone }),
   ...(business.contact.address && { address: {
     "@type": "PostalAddress",
     addressLocality: business.contact.address,
   }}),
+  areaServed: {
+    "@type": "AdministrativeArea",
+    name: "Galway and Connacht",
+  },
   image: socialImage,
 };
 

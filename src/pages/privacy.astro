@@ -9,8 +9,7 @@ const policySections = [
   {
     title: 'Information we collect',
     body: [
-      'This website may collect basic information that visitors choose to provide, such as a name, email address, phone number, and message details submitted through a contact form.',
-      'The website may also collect limited technical information, such as browser type, device information, pages visited, and general usage data, depending on the tools enabled for the finished site.',
+      'This website may collect limited technical information, such as browser type, device information, pages visited, and general usage data, depending on the tools enabled for the finished site.',
     ],
   },
   {
@@ -18,13 +17,6 @@ const policySections = [
     body: [
       'Information is used to respond to enquiries, provide requested services, manage customer communication, improve the website, and maintain basic business records.',
       'TODO: Confirm and document the actual ways Glenwood Flooring uses personal information before publication.',
-    ],
-  },
-  {
-    title: 'Contact forms',
-    body: [
-      'When a visitor submits a contact form, the information entered in the form is sent to the business so the enquiry can be answered.',
-      'Do not ask visitors to submit sensitive personal information unless it is necessary for the service being requested.',
     ],
   },
   {
@@ -37,7 +29,7 @@ const policySections = [
   {
     title: 'Third-party services',
     body: [
-      'The finished website may use third-party services such as hosting providers, analytics tools, maps, embedded media, form processing, email delivery, booking systems, or payment providers.',
+      'The finished website may use third-party services such as hosting providers, analytics tools, maps, embedded media, booking systems, or payment providers.',
       'Each third-party service may process information under its own privacy terms. Add the specific services used by the production website before launch.',
     ],
   },
@@ -60,7 +52,7 @@ const policySections = [
 
 <BaseLayout
   title={`Privacy Policy | ${business.name}`}
-  description={`Read the initial privacy information for ${business.name}, including contact forms, cookies, third-party services, data retention, and contact details.`}
+  description={`Read the initial privacy information for ${business.name}, including cookies, third-party services, data retention, and contact details.`}
 >
     <Section>
       <div class="privacy-page__intro">
@@ -99,7 +91,6 @@ const policySections = [
             with this website can be sent to {business.name}.
           </p>
           <ul class="privacy-page__contact-list">
-            <li>Email: <a href={`mailto:${business.contact.email}`}>{business.contact.email}</a></li>
             <li>Phone: <a href={`tel:${business.contact.phone}`}>{business.contact.phone}</a></li>
             <li>Address: {business.contact.address}</li>
           </ul>

@@ -1,11 +1,13 @@
 ---
 import { business } from '@config/activeSite';
-import { navigation } from '@config/navigation';
+import { navigation, type NavigationLink } from '@config/navigation';
 import { withBasePath } from '@utils/site-url';
 
 const year = new Date().getFullYear();
 
-const quickLinks = navigation;
+const quickLinks: NavigationLink[] = navigation.flatMap((item): NavigationLink[] =>
+  "children" in item ? [...item.children] : [item]
+);
 ---
 
 <footer class="site-footer">
@@ -27,9 +29,6 @@ const quickLinks = navigation;
     <section class="footer__section" aria-labelledby="footer-contact-heading">
       <h3 class="footer__heading" id="footer-contact-heading">Contact</h3>
       <address class="footer__address">
-        {business.contact.email && (
-          <a href={`mailto:${business.contact.email}`}>{business.contact.email}</a>
-        )}
         {business.contact.phone && (
           <a href={`tel:${business.contact.phone.replaceAll(' ', '')}`}>{business.contact.phone}</a>
         )}

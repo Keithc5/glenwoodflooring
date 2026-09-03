@@ -1,4 +1,8 @@
 import type { BusinessConfig } from "@config/types";
+import floorFinishingImage from "../../assets/images/services/floor-finishing.jpg";
+import floorSandingImage from "../../assets/images/services/floor-sanding.jpg";
+import floorStainingImage from "../../assets/images/services/floor-staining.jpg";
+import specialisedFloorRestorationImage from "../../assets/images/services/specialist-floor-1.jpg";
 
 export const glenwoodSite: BusinessConfig = {
   name: "Glenwood Flooring",
@@ -6,7 +10,6 @@ export const glenwoodSite: BusinessConfig = {
   siteUrl: "https://www.glenwoodflooring.ie",
   contact: {
     phone: "086 068 3004",
-    email: "info@glenwoodflooring.ie",
     address: "Glenamaddy, County Galway, Ireland",
   },
   openingHours: [], // TODO: Replace with confirmed Glenwood Flooring opening hours.
@@ -16,15 +19,15 @@ export const glenwoodSite: BusinessConfig = {
     linkedin: "",
   },
   services: [
-    { title: "Floor Sanding", description: "Professional sanding removes worn finish, scuffs and surface marks before the floor is treated and finished.", href: "/sanding" },
-    { title: "Floor Staining", description: "Change or refresh the colour of a timber floor with stain selected to suit the room and desired result.", href: "/staining" },
-    { title: "Floor Finishing", description: "Protect restored timber floors from everyday wear with a finish chosen for the floor and its use.", href: "/finishing" },
-    { title: "Specialist Flooring Services", description: "Restoration for sports floors, gyms, dance floors and other large commercial or community spaces.", href: "/specialised" },
+    { title: "Floor Sanding", description: "Professional sanding removes worn finish, scuffs and surface marks before the floor is treated and finished.", href: "/sanding", image: floorSandingImage, imageAlt: "Timber floor prepared for professional sanding" },
+    { title: "Floor Staining", description: "Change or refresh the colour of a timber floor with stain selected to suit the room and desired result.", href: "/staining", image: floorStainingImage, imageAlt: "Timber floor showing a stained finish" },
+    { title: "Floor Finishing", description: "Protect restored timber floors from everyday wear with a finish chosen for the floor and its use.", href: "/finishing", image: floorFinishingImage, imageAlt: "Finished wooden floor restoration surface" },
+    { title: "Specialist Flooring Services", description: "Restoration for sports floors, gyms, dance floors and other large commercial or community spaces.", href: "/specialised", image: specialisedFloorRestorationImage, imageAlt: "Large indoor timber sports floor" },
   ],
   gallery: [
-    { title: "Restored timber floor", image: "/images/glenwood/slider-1.jpg", alt: "Finished timber floor in an interior", href: "/gallery" },
-    { title: "Floor restoration work", image: "/images/glenwood/slider-4.jpg", alt: "Timber flooring after restoration work", href: "/gallery" },
-    { title: "Completed flooring project", image: "/images/glenwood/slider-7.jpg", alt: "Completed timber flooring project", href: "/gallery" },
+    { title: "Restored timber floor", image: "/images/glenwood/slider-1.jpg", alt: "Finished timber floor in an interior" },
+    { title: "Floor restoration work", image: "/images/glenwood/slider-4.jpg", alt: "Timber flooring after restoration work" },
+    { title: "Completed flooring project", image: "/images/glenwood/slider-7.jpg", alt: "Completed timber flooring project" },
   ],
   testimonials: [],
   faqs: [],
@@ -36,11 +39,6 @@ export const glenwoodSite: BusinessConfig = {
     primaryCtaHref: "/contact",
     secondaryCtaLabel: "View our work",
     secondaryCtaHref: "/our-work",
-  },
-  contactForm: {
-    eyebrow: "Flooring enquiry",
-    title: "Tell us about your project",
-    description: "This form is currently a visual enquiry form only. Please phone or email Glenwood Flooring to send an enquiry.",
   },
   aboutPage: {
     eyebrow: "About",
@@ -64,7 +62,7 @@ export const glenwoodSite: BusinessConfig = {
     ],
   },
   galleryPage: { eyebrow: "Gallery", title: "Glenwood flooring projects", description: "A selection of timber flooring and restoration imagery from the existing Glenwood website.", featuredTitle: "Selected work", featuredDescription: "Browse examples of completed flooring work and contact Glenwood to discuss your own floor." },
-  contactPage: { eyebrow: "Contact", title: "Contact Glenwood Flooring", description: "Get in touch about timber floor sanding, staining, finishing, restoration or specialist flooring services.", detailsTitle: "Contact details", detailsDescription: "Phone or email Glenwood Flooring to discuss your project.", hoursTitle: "Availability", hoursDescription: "Please contact Glenwood directly to confirm availability." },
+  contactPage: { eyebrow: "Contact", title: "Contact Glenwood Flooring", description: "Get in touch about timber floor sanding, staining, finishing, restoration or specialist flooring services.", detailsTitle: "Contact details", detailsDescription: "Call Glenwood Flooring to discuss your project." },
   theme: { primary: "#322719", secondary: "#66523b", accent: "#a97835", background: "#fffdf8" },
-  seo: { title: "Glenwood Flooring | Timber Floor Restoration Ireland", description: "Professional timber floor sanding, staining, finishing, restoration and specialist flooring services in Ireland.", image: "/images/glenwood/slider-1.jpg", locale: "en_IE", siteName: "Glenwood Flooring" },
+  seo: { title: "Floor Sanding & Restoration Galway | Glenwood Flooring", description: "Professional timber floor sanding, staining, finishing and restoration in Galway and across Connacht. Contact Glenwood Flooring for a quote.", image: "/images/glenwood/slider-1.jpg", locale: "en_IE", siteName: "Glenwood Flooring" },
 };

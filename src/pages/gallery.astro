@@ -1,80 +1,174 @@
 ---
-import BaseLayout from '@layouts/BaseLayout.astro';
-import { business } from '@config/activeSite';
-import Section from '@components/ui/Section.astro';
-import SectionHeading from '@components/ui/SectionHeading.astro';
-import Grid from '@components/ui/Grid.astro';
-import Card from '@components/ui/Card.astro';
-import ContactCTA from '@components/sections/ContactCTA.astro';
-import { withBasePath } from '@utils/site-url';
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { business } from "@config/activeSite";
+import Section from "@components/ui/Section.astro";
+import SectionHeading from "@components/ui/SectionHeading.astro";
+import Grid from "@components/ui/Grid.astro";
+import ContactCTA from "@components/sections/ContactCTA.astro";
+import { Image } from "astro:assets";
+import floorFinishingImage from "../assets/images/services/floor-finishing.jpg";
+import floorImageImage from "../assets/images/services/floor-image-1.jpg";
+import homeFloorImage from "../assets/images/services/home-floor-1.jpg";
+import beforeImage from "../assets/images/services/before-1.jpg";
+import afterImage from "../assets/images/services/after-1.jpg";
+import beforeTwoImage from "../assets/images/services/before-2.jpg";
+import afterTwoImage from "../assets/images/services/after-2.jpg";
+import specialistBeforeImage from "../assets/images/services/specialist-before-1.jpg";
+import specialistAfterImage from "../assets/images/services/specialist-after-1.jpg";
+import floorStainingImage from "../assets/images/services/floor-staining.jpg";
+import hotelFloorImage from "../assets/images/services/hotel-floor-1.jpg";
+import hotelFloorTwoImage from "../assets/images/services/hotel-floor-2.jpg";
+import newBuildFloorImage from "../assets/images/services/new-build-floor-1.jpg";
+import newBuildFloorTwoImage from "../assets/images/services/new-build-floor-2.jpg";
+import specialistFloorImage from "../assets/images/services/specialist-floor-1.jpg";
 
-const featuredItem = business.gallery[0];
+const featuredImages = [
+  { image: floorFinishingImage, alt: "Finished timber floor" },
+  { image: floorImageImage, alt: "Restored timber floor" },
+  { image: homeFloorImage, alt: "Restored timber floor in a home" },
+];
+
+const beforeAfterPairs = [
+  {
+    before: { image: beforeImage, alt: "Timber floor before restoration" },
+    after: { image: afterImage, alt: "Timber floor after restoration" },
+  },
+  {
+    before: { image: beforeTwoImage, alt: "Timber floor before restoration" },
+    after: { image: afterTwoImage, alt: "Timber floor after restoration" },
+  },
+  {
+    before: { image: specialistBeforeImage, alt: "Specialist timber floor before restoration" },
+    after: { image: specialistAfterImage, alt: "Specialist timber floor after restoration" },
+  },
+];
+
+const moreProjectGroups = [
+  [{ image: floorStainingImage, alt: "Timber floor with a stained finish" }],
+  [
+    { image: hotelFloorImage, alt: "Timber floor in a hotel setting" },
+    { image: hotelFloorTwoImage, alt: "Timber floor in a hotel setting" },
+  ],
+  [
+    { image: newBuildFloorImage, alt: "Timber floor in a new build" },
+    { image: newBuildFloorTwoImage, alt: "Timber floor in a new build" },
+  ],
+  [{ image: specialistFloorImage, alt: "Specialist timber floor" }],
+];
+
+const moreProjectsStartIndex = featuredImages.length + beforeAfterPairs.length * 2;
+const getMoreProjectIndex = (groupIndex: number, itemIndex: number) =>
+  moreProjectsStartIndex + moreProjectGroups.slice(0, groupIndex).reduce((total, group) => total + group.length, 0) + itemIndex;
+
 ---
 
 <BaseLayout
-  title={`Gallery | ${business.name}`}
-  description={business.galleryPage.description}
+  title={`Floor Restoration Gallery | ${business.name} Galway`}
+  description="Explore Glenwood Flooring's timber floor sanding, restoration and finishing projects from Galway and across Connacht."
 >
-    <Section>
-      <div class="gallery-page__intro">
-        <SectionHeading
-          eyebrow={business.galleryPage.eyebrow}
-          title={business.galleryPage.title}
-          description={business.galleryPage.description}
-          align="center"
-          headingLevel="h1"
-        />
-      </div>
-    </Section>
+  <Section>
+    <div class="gallery-page__section">
+      <SectionHeading
+        eyebrow="Our work"
+        title="Floor restoration gallery"
+        description="A selection of timber floor sanding, restoration and finishing projects completed by Glenwood."
+        align="center"
+        headingLevel="h1"
+      />
 
-    <Section background="muted">
-      <div class="gallery-page__grid">
-        <Grid columns={3} gap="md">
-          {business.gallery.map((item) => (
-            <figure class="gallery-item">
-              <img
-                class="gallery-item__image"
-                src={withBasePath(item.image)}
-                alt={item.alt}
-                width="800"
-                height="600"
-                loading="lazy"
-              />
-              <figcaption class="gallery-item__title">{item.title}</figcaption>
-            </figure>
+      <Grid columns={2} gap="md">
+        {featuredImages.map((item, index) => (
+          <button
+            class="gallery-page__image-button gallery-page__general-image-button"
+            type="button"
+            data-lightbox-index={index}
+            aria-label="Open project image"
+          >
+            <Image src={item.image} alt={item.alt} width={1200} height={900} loading={index > 1 ? "lazy" : undefined} />
+          </button>
+        ))}
+      </Grid>
+    </div>
+  </Section>
+
+  <Section background="muted">
+    <div class="gallery-page__section">
+      <SectionHeading
+        title="Before & After"
+        description="See how worn and tired timber floors can be transformed through professional sanding and restoration."
+        align="center"
+      />
+
+      {beforeAfterPairs.map((pair, pairIndex) => (
+        <div class="gallery-page__pair">
+          {[pair.before, pair.after].map((item, itemIndex) => (
+            <div class="gallery-page__pair-item">
+              <span class="gallery-page__pair-label">{itemIndex === 0 ? "Before" : "After"}</span>
+              <button
+                class="gallery-page__image-button gallery-page__paired-image-button"
+                type="button"
+                data-lightbox-index={featuredImages.length + pairIndex * 2 + itemIndex}
+                aria-label={`Open ${itemIndex === 0 ? "before" : "after"} project image`}
+              >
+                <Image src={item.image} alt={item.alt} width={1200} height={900} loading="lazy" />
+              </button>
+            </div>
           ))}
-        </Grid>
+        </div>
+      ))}
+    </div>
+  </Section>
+
+  <Section>
+    <div class="gallery-page__section">
+      <SectionHeading title="More projects" align="center" />
+
+      <div class="gallery-page__more-grid">
+        {moreProjectGroups.map((group, groupIndex) => (
+          <div class:list={["gallery-page__more-group", group.length === 2 && "gallery-page__more-group--paired"]}>
+            {group.map((item, itemIndex) => (
+              <button
+                class="gallery-page__image-button gallery-page__general-image-button"
+                type="button"
+                data-lightbox-index={getMoreProjectIndex(groupIndex, itemIndex)}
+                aria-label="Open project image"
+              >
+                <Image src={item.image} alt={item.alt} width={1200} height={900} loading="lazy" />
+              </button>
+            ))}
+          </div>
+        ))}
       </div>
-    </Section>
+    </div>
+  </Section>
 
-    <Section>
-      <div class="gallery-page__featured">
-        <SectionHeading
-          eyebrow="Featured"
-          title={business.galleryPage.featuredTitle}
-          description={business.galleryPage.featuredDescription}
-        />
+  <dialog class="gallery-page__lightbox" aria-label="Project image viewer">
+    <img class="gallery-page__lightbox-image" alt="" />
+    <button class="gallery-page__lightbox-close" type="button">Close</button>
+  </dialog>
 
-        <Card title={featuredItem.title} description={featuredItem.alt}>
-          <img
-            slot="image"
-            src={withBasePath(featuredItem.image)}
-            alt={featuredItem.alt}
-            width="800"
-            height="600"
-            loading="lazy"
-          />
-        </Card>
-      </div>
-    </Section>
-
-    <ContactCTA
-      eyebrow={business.contactCta.eyebrow}
-      title={business.contactCta.title}
-      description={business.contactCta.description}
-      primaryCtaLabel={business.contactCta.primaryCtaLabel}
-      primaryCtaHref={business.contactCta.primaryCtaHref}
-      secondaryCtaLabel={business.contactCta.secondaryCtaLabel}
-      secondaryCtaHref={business.contactCta.secondaryCtaHref}
-    />
+  <ContactCTA {...business.contactCta} />
 </BaseLayout>
+
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>(".gallery-page__lightbox");
+  const lightboxImage = dialog?.querySelector<HTMLImageElement>(".gallery-page__lightbox-image");
+  const closeButton = dialog?.querySelector<HTMLButtonElement>(".gallery-page__lightbox-close");
+  const imageButtons = document.querySelectorAll<HTMLButtonElement>("[data-lightbox-index]");
+  const images = [...document.querySelectorAll<HTMLImageElement>("[data-lightbox-index] img")];
+
+  imageButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const image = images[Number(button.dataset.lightboxIndex)];
+      if (!dialog || !lightboxImage || !image) return;
+      lightboxImage.src = image.currentSrc || image.src;
+      lightboxImage.alt = image.alt;
+      dialog.showModal();
+    });
+  });
+
+  closeButton?.addEventListener("click", () => dialog?.close());
+  dialog?.addEventListener("click", (event) => {
+    if (event.target === dialog) dialog.close();
+  });
+</script>

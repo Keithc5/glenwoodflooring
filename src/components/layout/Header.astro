@@ -1,32 +1,50 @@
 ---
-import { business } from '@config/activeSite';
-import { navigation } from '@config/navigation';
-import { stripBasePath, withBasePath } from '@utils/site-url';
-
-const navItems = navigation;
+import { business } from "@config/activeSite";
+import { navigation, type NavigationItem, type NavigationLink } from "@config/navigation";
+import { stripBasePath, withBasePath } from "@utils/site-url";
 
 const currentPath = stripBasePath(Astro.url.pathname);
-const normalisePath = (path: string) =>
-  path !== "/" ? path.replace(/\/$/, "") : path;
-
+const normalisePath = (path: string) => path !== "/" ? path.replace(/\/$/, "") : path;
 const currentPathname = normalisePath(currentPath);
+const isGroup = (item: NavigationItem): item is Extract<NavigationItem, { children: readonly NavigationLink[] }> => "children" in item;
+const isCurrent = (href: string) => currentPathname === href;
+const isGroupCurrent = (item: Extract<NavigationItem, { children: readonly NavigationLink[] }>) => item.children.some((child) => isCurrent(child.href));
 ---
 
 <header class="site-header">
   <div class="container header-inner">
     <a href={withBasePath("/")} class="logo" aria-label={`${business.name} home`}>
-      <img src={withBasePath("/images/glenwood/logo.png")} alt={business.name} width="291" height="99" />
+      <img src={withBasePath("/images/glenwood/logo-transparent.png")} alt={business.name} width="290" height="83" />
     </a>
 
     <nav class="nav nav--desktop" aria-label="Main navigation">
-      {navItems.map((item) => (
+      {navigation.map((item) => isGroup(item) ? (
+        <div class:list={["nav-dropdown", isGroupCurrent(item) && "active"]} data-desktop-dropdown>
+          <button
+            class="nav-link nav-dropdown__trigger"
+            type="button"
+            aria-expanded="false"
+            aria-controls="desktop-services-menu"
+          >
+            {item.label}
+          </button>
+          <div class="nav-dropdown__panel" id="desktop-services-menu" aria-hidden="true">
+            {item.children.map((child) => (
+              <a
+                href={withBasePath(child.href)}
+                aria-current={isCurrent(child.href) ? "page" : undefined}
+                class:list={["nav-dropdown__link", isCurrent(child.href) && "active"]}
+              >
+                {child.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      ) : (
         <a
           href={withBasePath(item.href)}
-          aria-current={currentPathname === item.href ? "page" : undefined}
-          class:list={[
-            'nav-link',
-            currentPathname === item.href && 'active',
-          ]}
+          aria-current={isCurrent(item.href) ? "page" : undefined}
+          class:list={["nav-link", item.variant === "cta" && "nav-cta", isCurrent(item.href) && "active"]}
         >
           {item.label}
         </a>
@@ -36,15 +54,33 @@ const currentPathname = normalisePath(currentPath);
     <details class="mobile-nav">
       <summary class="mobile-nav__summary">Menu</summary>
       <nav class="mobile-nav__panel" aria-label="Mobile navigation">
-        {navItems.map((item) => (
+        {navigation.map((item) => isGroup(item) ? (
+          <div class:list={["mobile-nav__group", isGroupCurrent(item) && "active"]} data-mobile-disclosure data-open={isGroupCurrent(item) ? "true" : "false"}>
+            <button
+              class="mobile-nav__group-trigger"
+              type="button"
+              aria-expanded={isGroupCurrent(item) ? "true" : "false"}
+              aria-controls="mobile-services-menu"
+            >
+              {item.label}
+            </button>
+            <div class="mobile-nav__group-panel" id="mobile-services-menu" hidden={!isGroupCurrent(item)}>
+              {item.children.map((child) => (
+                <a
+                  href={withBasePath(child.href)}
+                  aria-current={isCurrent(child.href) ? "page" : undefined}
+                  class:list={["nav-link", "mobile-nav__link", "mobile-nav__sublink", isCurrent(child.href) && "active"]}
+                >
+                  {child.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        ) : (
           <a
             href={withBasePath(item.href)}
-            aria-current={currentPathname === item.href ? "page" : undefined}
-            class:list={[
-              'nav-link',
-              'mobile-nav__link',
-              currentPathname === item.href && 'active',
-            ]}
+            aria-current={isCurrent(item.href) ? "page" : undefined}
+            class:list={["nav-link", "mobile-nav__link", item.variant === "cta" && "nav-cta", isCurrent(item.href) && "active"]}
           >
             {item.label}
           </a>
@@ -53,3 +89,61 @@ const currentPathname = normalisePath(currentPath);
     </details>
   </div>
 </header>
+
+<script>
+  const closeDelay = 220;
+
+  document.querySelectorAll<HTMLElement>("[data-desktop-dropdown]").forEach((dropdown) => {
+    const trigger = dropdown.querySelector<HTMLButtonElement>(".nav-dropdown__trigger");
+    const panel = dropdown.querySelector<HTMLElement>(".nav-dropdown__panel");
+    let closeTimer: number | undefined;
+    if (!trigger || !panel) return;
+
+    const setOpen = (open: boolean) => {
+      window.clearTimeout(closeTimer);
+      dropdown.toggleAttribute("data-open", open);
+      trigger.setAttribute("aria-expanded", String(open));
+      panel.setAttribute("aria-hidden", String(!open));
+    };
+    const open = () => setOpen(true);
+    const scheduleClose = () => {
+      window.clearTimeout(closeTimer);
+      closeTimer = window.setTimeout(() => {
+        if (!dropdown.matches(":hover") && !dropdown.contains(document.activeElement)) setOpen(false);
+      }, closeDelay);
+    };
+
+    dropdown.addEventListener("pointerenter", open);
+    dropdown.addEventListener("pointerleave", scheduleClose);
+    dropdown.addEventListener("focusin", open);
+    dropdown.addEventListener("focusout", scheduleClose);
+    trigger.addEventListener("click", (event) => {
+      if (event.detail === 0) setOpen(trigger.getAttribute("aria-expanded") !== "true");
+    });
+    dropdown.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        trigger.focus();
+      }
+    });
+  });
+
+  document.querySelectorAll<HTMLElement>("[data-mobile-disclosure]").forEach((disclosure) => {
+    const trigger = disclosure.querySelector<HTMLButtonElement>(".mobile-nav__group-trigger");
+    const panel = disclosure.querySelector<HTMLElement>(".mobile-nav__group-panel");
+    if (!trigger || !panel) return;
+
+    const setOpen = (open: boolean) => {
+      disclosure.dataset.open = String(open);
+      trigger.setAttribute("aria-expanded", String(open));
+      panel.hidden = !open;
+    };
+    trigger.addEventListener("click", () => setOpen(trigger.getAttribute("aria-expanded") !== "true"));
+    disclosure.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        trigger.focus();
+      }
+    });
+  });
+</script>

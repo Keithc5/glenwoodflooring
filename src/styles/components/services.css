@@ -1,5 +1,5 @@
 .services {
   display: flex;
   flex-direction: column;
-  gap: var(--space-6);
+  gap: clamp(var(--space-7), 6vw, var(--space-9));
 }

@@ -1,48 +1,44 @@
 :root {
-  --color-primary: #2563eb;
-  --color-primary-dark: #1d4ed8;
-  --color-primary-contrast: #ffffff;
-  --color-focus: #1d4ed8;
-
-  --color-secondary: #111827;
-  --color-secondary-dark: #000000;
-  --color-secondary-contrast: #ffffff;
-
-  --color-text: #1f2937;
-  --color-text-muted: #6b7280;
-
-  --color-background: #ffffff;
-  --color-surface: #ffffff;
-  --color-surface-muted: #f3f4f6;
-  --color-border: #e5e7eb;
-  --color-border-strong: #9ca3af;
-
+  --color-primary: #3d2b20;
+  --color-primary-dark: #281b14;
+  --color-primary-contrast: #fffaf2;
+  --color-focus: #b8883f;
+  --color-secondary: #6f5235;
+  --color-secondary-dark: #4b3524;
+  --color-secondary-contrast: #fffaf2;
+  --color-accent: #b8883f;
+  --color-accent-light: #d8bb85;
+  --color-text: #302922;
+  --color-text-muted: #6f665c;
+  --color-background: #f8f5ef;
+  --color-surface: #fffaf2;
+  --color-surface-muted: #ebe5dc;
+  --color-surface-deep: #ddd3c5;
+  --color-border: #d8cec0;
+  --color-border-strong: #a99a88;
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
   --space-4: 1rem;
   --space-5: 1.5rem;
   --space-6: 2rem;
-  --radius-sm: 0.25rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
-  --radius-xl: 1rem;
-  --radius-full: 9999px;
-
-  --shadow-sm: 0 1px 3px rgb(0 0 0 / 8%);
-  --shadow-md: 0 4px 10px rgb(0 0 0 / 10%);
-  --shadow-lg: 0 10px 25px rgb(0 0 0 / 12%);
-
-  --transition-fast: 160ms ease;
-  --transition-normal: 240ms ease;
-
-  --container-width: 1200px;
-
-  --font-body: Inter, system-ui, sans-serif;
-  --font-heading: Inter, system-ui, sans-serif;
-
-  --color-muted: var(--color-text-muted);
-  --color-text-light: var(--color-text-muted);
   --space-7: 3rem;
   --space-8: 4rem;
+  --space-9: 5.5rem;
+  --space-10: 7rem;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.875rem;
+  --radius-xl: 1.25rem;
+  --radius-full: 9999px;
+  --shadow-sm: 0 4px 14px rgb(53 37 25 / 8%);
+  --shadow-md: 0 14px 35px rgb(53 37 25 / 12%);
+  --shadow-lg: 0 24px 60px rgb(40 27 20 / 18%);
+  --transition-fast: 180ms ease;
+  --transition-normal: 320ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  --container-width: 1240px;
+  --font-body: "Avenir Next", Avenir, "Segoe UI", system-ui, sans-serif;
+  --font-heading: Georgia, "Times New Roman", serif;
+  --color-muted: var(--color-text-muted);
+  --color-text-light: var(--color-text-muted);
 }

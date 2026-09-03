@@ -5,14 +5,9 @@ import Section from '@components/ui/Section.astro';
 import SectionHeading from '@components/ui/SectionHeading.astro';
 import Grid from '@components/ui/Grid.astro';
 import Card from '@components/ui/Card.astro';
-import ContactForm from '@components/sections/ContactForm.astro';
+import Button from '@components/ui/Button.astro';
 
 const contactCards = [
-  {
-    title: "Email",
-    description: business.contact.email,
-    href: `mailto:${business.contact.email}`,
-  },
   {
     title: "Phone",
     description: business.contact.phone,
@@ -26,8 +21,8 @@ const contactCards = [
 ---
 
 <BaseLayout
-  title={`Contact | ${business.name}`}
-  description={business.contactPage.description}
+  title={`Contact Glenwood Flooring | Floor Restoration Galway`}
+  description="Contact Glenwood Flooring in County Galway for timber floor sanding, restoration, staining, finishing and a project quote."
 >
     <Section>
       <div class="contact-page__intro">
@@ -49,7 +44,7 @@ const contactCards = [
           align="center"
         />
 
-        <Grid columns={3} gap="md">
+        <Grid columns={2} gap="md">
           {contactCards.map((item) => (
             <Card
               title={item.title}
@@ -61,28 +56,20 @@ const contactCards = [
       </div>
     </Section>
 
-    <ContactForm
-      eyebrow={business.contactForm.eyebrow}
-      title={business.contactForm.title}
-      description={business.contactForm.description}
-    />
-
-    <Section>
-      <div class="contact-page__hours">
+    <Section background="muted">
+      <div class="contact-page__cta">
         <SectionHeading
-          title={business.contactPage.hoursTitle}
-          description={business.contactPage.hoursDescription}
+          title="Get in touch"
+          description="For timber floor restoration, availability or to arrange a quote, speak directly with Glenwood Flooring."
           align="center"
         />
 
-        <div class="contact-page__hours-list">
-          {business.openingHours.map((item) => (
-            <div class="contact-page__hours-row">
-              <span>{item.label}</span>
-              <strong>{item.value}</strong>
-            </div>
-          ))}
+        <div class="contact-page__callout">
+          <Button href={`tel:${business.contact.phone.replaceAll(" ", "")}`} size="lg">
+            Call {business.contact.phone}
+          </Button>
         </div>
       </div>
     </Section>
+
 </BaseLayout>

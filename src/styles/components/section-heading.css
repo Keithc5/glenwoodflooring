@@ -1,5 +1,5 @@
 .section-heading {
-  max-width: 46rem;
+  max-width: 52rem;
 }
 
 .section-heading--center {
@@ -8,24 +8,25 @@
 }
 
 .section-heading__eyebrow {
-  margin-bottom: var(--space-2);
-  color: var(--color-primary);
+  margin-bottom: var(--space-3);
+  color: var(--color-accent);
   font-size: 0.8125rem;
   font-weight: 700;
   line-height: 1.2;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.16em;
 }
 
 .section-heading__title {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2.4rem, 5vw, 4.25rem);
 }
 
 .section-heading__description {
   max-width: 40rem;
   margin-top: var(--space-4);
   color: var(--color-text-muted);
-  font-size: 1.125rem;
+  font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+  line-height: 1.75;
 }
 
 .section-heading--center .section-heading__description {

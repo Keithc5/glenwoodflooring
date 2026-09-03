@@ -6,7 +6,7 @@
 }
 
 .section {
-  padding-block: var(--space-8);
+  padding-block: clamp(var(--space-8), 8vw, var(--space-10));
 }
 
 .skip-link {
@@ -35,7 +35,7 @@
 }
 
 .section--default {
-  background: var(--color-background);
+  background: var(--color-surface);
 }
 
 .section--muted {

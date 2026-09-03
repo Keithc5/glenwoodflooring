@@ -1,12 +1,28 @@
-export const navigation = [
+export interface NavigationLink {
+  label: string;
+  href: string;
+  variant?: "default" | "cta";
+}
+
+export interface NavigationGroup {
+  label: string;
+  children: readonly NavigationLink[];
+}
+
+export type NavigationItem = NavigationLink | NavigationGroup;
+
+export const serviceNavigation = [
+  { label: "Floor Sanding", href: "/sanding" },
+  { label: "Floor Staining", href: "/staining" },
+  { label: "Floor Finishing", href: "/finishing" },
+  { label: "Specialised Services", href: "/specialised" },
+] as const satisfies readonly NavigationLink[];
+
+export const navigation: readonly NavigationItem[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
+  { label: "Services", children: serviceNavigation },
   { label: "Our Work", href: "/our-work" },
-  { label: "Sanding", href: "/sanding" },
-  { label: "Staining", href: "/staining" },
-  { label: "Finishing", href: "/finishing" },
-  { label: "Specialised", href: "/specialised" },
   { label: "Gallery", href: "/gallery" },
-  { label: "Pricing", href: "/pricing" },
-  { label: "Contact Us", href: "/contact" },
-] as const;
+  { label: "Contact", href: "/contact", variant: "cta" },
+];
