@@ -1,6 +1,7 @@
 ---
 import { business } from '@config/activeSite';
 import { navigation, type NavigationLink } from '@config/navigation';
+import SocialLinks from '@components/ui/SocialLinks.astro';
 import { withBasePath } from '@utils/site-url';
 
 const year = new Date().getFullYear();
@@ -36,6 +37,7 @@ const quickLinks: NavigationLink[] = navigation.flatMap((item): NavigationLink[]
           <span>{business.contact.address}</span>
         )}
       </address>
+      <SocialLinks />
     </section>
 
     {business.openingHours.length > 0 && <section class="footer__section" aria-labelledby="footer-hours-heading">

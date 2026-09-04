@@ -1,0 +1,39 @@
+---
+import { business } from "@config/activeSite";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className = "" } = Astro.props;
+---
+
+<div class:list={["social-links", className]}>
+  <p class="social-links__label">Follow us on social media</p>
+  <div class="social-links__icons">
+    <a
+      class="social-links__link"
+      href={business.social.facebook}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Glenwood Flooring on Facebook"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M14 8h3V4h-3c-3.3 0-5 1.9-5 5v3H6v4h3v8h4v-8h3.5l.5-4H13V9c0-.7.3-1 1-1Z" />
+      </svg>
+    </a>
+    <a
+      class="social-links__link"
+      href={business.social.instagram}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Glenwood Flooring on Instagram"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <rect x="3" y="3" width="18" height="18" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.5" cy="6.5" r="1" class="social-links__dot" />
+      </svg>
+    </a>
+  </div>
+</div>

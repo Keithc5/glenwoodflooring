@@ -14,8 +14,8 @@ export const glenwoodSite: BusinessConfig = {
   },
   openingHours: [], // TODO: Replace with confirmed Glenwood Flooring opening hours.
   social: {
-    facebook: "https://www.facebook.com/glenwoodtimberfloorrestoration/",
-    instagram: "https://www.instagram.com/Glenwoodfloors/",
+    facebook: "https://www.facebook.com/glenwoodtimberfloorrestoration",
+    instagram: "https://www.instagram.com/glenwoodfloors/",
     linkedin: "",
   },
   services: [

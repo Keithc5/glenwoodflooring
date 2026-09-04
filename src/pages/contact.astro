@@ -6,6 +6,7 @@ import SectionHeading from '@components/ui/SectionHeading.astro';
 import Grid from '@components/ui/Grid.astro';
 import Card from '@components/ui/Card.astro';
 import Button from '@components/ui/Button.astro';
+import SocialLinks from '@components/ui/SocialLinks.astro';
 
 const contactCards = [
   {
@@ -68,6 +69,7 @@ const contactCards = [
           <Button href={`tel:${business.contact.phone.replaceAll(" ", "")}`} size="lg">
             Call {business.contact.phone}
           </Button>
+          <SocialLinks />
         </div>
       </div>
     </Section>

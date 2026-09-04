@@ -14,6 +14,9 @@
 
 .contact-page__callout {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-8);
   justify-content: center;
 }
 
